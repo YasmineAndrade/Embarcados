@@ -3,4 +3,10 @@
 3-A) Controle de tração, onde um circuito controla qual roda esta girando mais ou seja menor tração e manda mais potencia para ela.
   B) Controle de temperatura de freezer que um circuito é responsavel pelo monitoramento e tomada de desição(se aumenta ou diminui a temperatura para manter a estabilidade)
   C) Controlador Single Loop/Mult Loop, que realiza correções no valor de movimentos realizados por mecanismos industriais evitando propagação de erros e possiveis acidentes.
-4-
+4-ASICs é  um dispositivo criado para realizar ações especificas em um unico sistema ou projeto.
+  FPGAssão circuitos reconfiguraveis que possibilitam  que o hardware execute qualquer combinação de funções digitais que desejar-mos.
+  SoCs são sistemas com um único chip capazes de  conter processadores memoria e até placas de video.
+  GPP- São controladores de proposito geral.
+  
+  
+  
