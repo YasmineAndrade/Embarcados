@@ -8,4 +8,19 @@
     b)ls
     c)pwd
     d)cd
-    e)
+    e)mkdir
+    f)rm
+    g)rm nome_da_pasta/ -R
+    h)cp
+    i) cp -R
+    j)mv
+    k)mv
+    l)mv
+    m)cat more or less.
+    n)file
+    o)clear
+    p)grep
+    q)sort
+    r)sed -i 's/original/nova/g' arquivo
+    s)diff
+    t)echo
