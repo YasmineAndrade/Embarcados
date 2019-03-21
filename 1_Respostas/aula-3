@@ -8,4 +8,6 @@
 7 - file *.png
 8 - file *.jpg
 9 - file *.gif
-10 - 
+10 - grep "cal" *
+11 - grep "tux" *
+12 - sed -n '/^tux/p' *
