@@ -13,4 +13,14 @@ read ano
 cal $mes $ano
 chmod 755 cals.sh
 
-3-
+3-echo "Digite o mes desejado"
+read mes
+
+for i in {19..09}
+do
+cal $mes 20$i
+done
+echo "finish"
+chmod 755 cals.sh
+
+4-
