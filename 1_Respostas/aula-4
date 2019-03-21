@@ -5,4 +5,10 @@ echo "Numero do arquivo="$i > text$i.txt
 done
 echo "finish"
 
-2-
+2-echo "Digite o mes desejado"
+read mes
+echo "Digite o ano desejado"
+read ano
+
+cal $mes $ano
+chmod 755 cals.sh
