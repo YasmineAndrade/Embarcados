@@ -1,4 +1,11 @@
-1- echo Olá mundo cruel > Ola_mundo.txt
+1 - echo Olá mundo cruel > Ola_mundo.txt
     head Ola_mundo.txt
-2- 
-3- 
+2 - ls
+3 - file
+4 - find /root  -type d
+5 - date mmddHHMMYYYY
+6 - file *.txt
+7 - file *.png
+8 - file *.jpg
+9 - file *.gif
+10 - 
