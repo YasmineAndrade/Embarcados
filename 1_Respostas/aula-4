@@ -5,13 +5,20 @@ echo "Numero do arquivo="$i > text$i.txt
 done
 echo "finish"
 
-2-echo "Digite o mes desejado"
-read mes
-echo "Digite o ano desejado"
-read ano
+2-n=0
+for i in $@
+do
 
-cal $mes $ano
-chmod 755 cals.sh
+if [ $n -eq 0 ];then
+arg=$i
+n=1
+
+elif [ $n -eq 1 ];then
+cal $arg $i
+n=0
+fi
+done
+
 
 3-echo "Digite o mes desejado"
 read mes
