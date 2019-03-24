@@ -33,4 +33,15 @@ ncal $mes 20$i | grep $dia
 echo -e "\n"
 done
 
-4-
+4-echo -e "Digite o numero do arquivo que deseja baixar?\n
+	1 - Linux Basico\n
+	2 - Shell script\n
+	3 - Embarcados\n"
+read arq
+cat "sites.txt" | grep -n ^ | grep ^$arq | sed "s/$arq://" > arq.txt
+
+var=$(cat arq.txt)
+wget $var
+
+
+
