@@ -38,10 +38,12 @@ done
 	2 - Shell script\n
 	3 - Embarcados\n"
 read arq
-cat "sites.txt" | grep -n ^ | grep ^$arq | sed "s/$arq://" > arq.txt
-
-var=$(cat arq.txt)
+var=$(cat "sites.txt" | grep -n ^ | grep ^$arq | sed "s/$arq://")
 wget $var
+
+5-
+
+
 
 
 
