@@ -22,12 +22,15 @@ done
 
 3-echo "Digite o mes desejado"
 read mes
+echo "Digite o dia desejado"
+read dia
 
 for i in {19..09}
 do
-cal $mes 20$i
+echo "Ano de 20$i"
+ncal $mes 20$i | grep $dia
+
+echo -e "\n"
 done
-echo "finish"
-chmod 755 cals.sh
 
 4-
