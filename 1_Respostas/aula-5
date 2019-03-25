@@ -18,3 +18,5 @@ char nome[20];
 	c) O programa vai adicionar o valor digitado depois do echo como uma entrada do usuario
 	d) Ainda ira ocorrer o mesmo problema de apenas o que estiver antes do espa;o ou enter sera impresso
 	e) Ainda ira ocorrer o mesmo problema de apenas o que estiver antes do espa;o ou enter sera impresso
+	f) O valor do arquivo sera mandado como entrada para o programa
+4 - 
