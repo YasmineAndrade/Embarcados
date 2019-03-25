@@ -4,3 +4,12 @@ int main(void)
 {
 	printf("Hello world\n");
 }
+2- #include <stdio.h>
+
+int main(void)
+{
+char nome[20];
+	printf("Digite seu nome?\n");
+	scanf("%s", nome);
+	printf("Ola %s \n",nome);
+}
