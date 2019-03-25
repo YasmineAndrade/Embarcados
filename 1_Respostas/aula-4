@@ -41,7 +41,18 @@ read arq
 var=$(cat "sites.txt" | grep -n ^ | grep ^$arq | sed "s/$arq://")
 wget $var
 
-5-
+errada5-refazeroutra maneira(
+n=$1
+echo "cd " > arq.txt
+while [ $n != "0" ]
+do
+var=$(sed "s/$/../" arq.txt) > arq.txt
+n=$(($n-1))
+echo $n
+echo $var
+done
+echo "saiu"
+)
 
 
 
