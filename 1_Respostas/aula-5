@@ -1,10 +1,10 @@
-1- #include <stdio.h>
+1 - #include <stdio.h>
 
 int main(void)
 {
 	printf("Hello world\n");
 }
-2- #include <stdio.h>
+2 - #include <stdio.h>
 
 int main(void)
 {
@@ -13,3 +13,8 @@ char nome[20];
 	scanf("%s", nome);
 	printf("Ola %s \n",nome);
 }
+3 -	a) O scanf() pega a string ate chegar em um espaco ou enter
+	b) O problema ainda continua o mesmo, para resolve-lo basta usat o "gets()"
+	c) O programa vai adicionar o valor digitado depois do echo como uma entrada do usuario
+	d) Ainda ira ocorrer o mesmo problema de apenas o que estiver antes do espa;o ou enter sera impresso
+	e) Ainda ira ocorrer o mesmo problema de apenas o que estiver antes do espa;o ou enter sera impresso
