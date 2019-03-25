@@ -52,6 +52,8 @@ for(i=1;i<argc;i++){
 	strcat(entrada,argv[i]);
 	strcat(entrada," ");
 }
-printf("Ola %s",entrada);
+printf("Argumentos = %s",entrada);
    return 0;
 }
+
+8 - 
