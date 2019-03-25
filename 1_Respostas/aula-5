@@ -27,4 +27,16 @@ int main(int argc, const char * argv[]) {
    return 0;
 }
 
-5 - 
+5 -	A) ira escrever a string ate o espaco.
+ 	B) Ao colocar entre aspas duplas a string e lida completamente
+	C) O valor de agrv retorna nulo
+	D) O valor de agrv retorna nulo
+	E) O valor de agrv retorna nulo
+	F) O valor de agrv retorna nulo
+6 - #include <stdio.h>
+
+int main(int argc, const char * argv[]) {
+	printf("Ola %s\n",argv[1]);
+	printf("Numero de entradas = %d\n",argc);
+   return 0;
+}
