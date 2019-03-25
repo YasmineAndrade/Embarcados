@@ -1,1 +1,30 @@
+1 - #include <stdio.h>
 
+int main(int argc, const char * argv[]) {
+   char string[100];
+   FILE *fp;
+   fp=fopen ("ola.txt","w");  
+   fprintf(fp,"olá mundo\n");
+   fclose(fp);
+   
+   return 0;
+}
+2 - #include <stdio.h>
+
+int main(int argc, const char * argv[]) {
+	char nome[100];
+	int idade;   
+	FILE *fp;
+	fp=fopen ("Eu.txt","w"); 
+ 	printf("Digite o seu nome: ");
+	gets(nome);
+	printf("Digite a sua idade: ");
+	scanf("%d",&idade);
+	
+	
+	fprintf(fp,"Nome %s \n Idade: %d\n",nome,idade);
+   	fclose(fp);
+   
+   return 0;
+}
+3 - 
