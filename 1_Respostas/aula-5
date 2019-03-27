@@ -56,9 +56,11 @@ printf("Argumentos = %s",entrada);
    return 0;
 }
 
-8 - #include <stdlib.h>
+8 - //arquivo nun_caracs.c
+#include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include "num_caracs.h"
 
 int main(int argc, const char * argv[]) {
 int i=0;
@@ -68,6 +70,7 @@ scanf("%s",entrada);
 printf("O numero de caracteres da palavra é: %i\n",i);
 return 0;
 }
+//arquivo num_caracs.h
 
 int Num_Caracs(char *string){
 	int number = strlen(string);
