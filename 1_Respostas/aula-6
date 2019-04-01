@@ -27,4 +27,21 @@ int main(int argc, const char * argv[]) {
    
    return 0;
 }
-3 - 
+3 - #include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(int argc, const char * argv[])
+{
+	FILE *fp;
+	char ent[100];
+	strcat(ent,argv[1]);
+	strcat(ent,".txt");
+	fp = fopen (ent, "w"); 
+	fprintf(fp,"Nome:%s\n Idade: %s Anos\n", argv[1],argv[2]);
+	fclose(fp);
+return 0;
+}
+
