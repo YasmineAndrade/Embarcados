@@ -44,4 +44,40 @@ int main(int argc, const char * argv[])
 	fclose(fp);
 return 0;
 }
+4 - #include <stdio.h>
+#include <stdlib.h>
 
+
+int main(int argc, char **argv)
+{
+	char arq[20];
+	printf("Digite o nome do arquivo que deseja verificar o tamanho\n");
+	scanf("%s",arq);
+	long tam = tam_arq_texto(arq);
+	printf("O tamanho do arquivo e = %ld Bytes\n",tam);
+	return 0;
+}
+
+int tam_arq_texto(char *nome_arquivo){
+
+    FILE *arquivo; // ponteiro para o arquivo
+    long tamanho; // tamanho em bytes do arquivo
+ 
+    // abre o arquivo para leitura
+    arquivo = fopen(nome_arquivo, "r");
+ 
+    // verifica se o arquivo foi aberto com sucesso
+    if (arquivo != NULL) {
+        // movimenta a posição corrente de leitura no arquivo 
+        // para o seu fim
+        fseek(arquivo, 0, SEEK_END);
+ 
+        // pega a posição corrente de leitura no arquivo
+        tamanho = ftell(arquivo);
+	printf("tamanho lido com sucesso!\n");
+    } else {
+        printf("Arquivo inexistente");
+    }
+ 	fclose(arquivo);
+   return tamanho;
+}
