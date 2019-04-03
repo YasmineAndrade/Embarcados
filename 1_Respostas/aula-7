@@ -1,0 +1,14 @@
+1 -A)
+FILE *fp;
+//abre o arquivo
+	fp = open("exemplo.bin", O_RDWR);
+// Fecha arquivo
+  close(fp)
+  
+  B) fp=fopen ("ola.txt","w"); //o "w" dentro da função fopen indica que o arquivo foi aberto para escrita;    
+   fprintf(fp,"olá mundo\n"); //aqui o "fprintf" escreve no arquivo um conteudo
+   
+  C)fp=fopen ("ola.txt","r"); //o "r" dentro da função fopen indica que o arquivo foi aberto para leitura; 
+  
+   
+    
