@@ -76,21 +76,38 @@ int Num_Caracs(char *string){
 	int number = strlen(string);
 return number;
 }
-9 - #include <stdlib.h>
+9 -//makefile 
+num_caracs: main.o num_caracs.o
+	gcc $(CFLAGS) -o num_caracs main.o num_caracs.o
+main.o: main.c num_caracs.h
+	gcc $(CFLAGS) -c main.c
+num_caracs.o: num_caracs.c num_caracs.h
+	gcc $(CFLAGS) -c num_caracs.c
+clean:
+	rm -f *.o num_caracs
+//num_caracs.c
+#include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include "num_caracs.h"
 
-int main(int argc, const char * argv[]) {
-char cont[100] = "./testes ";
-int i=0;
-
-for(i=1;i<argc;i++){
-	
-	strcat(cont,argv[i]);
-	printfsystem(cont);
+int Num_Caracs(char *string){
+	int number = strlen(string);
+return number;
 }
+//num_caracs.h
+int Num_Caracs(char *string);
 
+//main.c
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include "num_caracs.h"
 
-
+int main(int argc, char **argv){
+for(int i=0;i<argc;i++){
+printf ("Argumento:%s /",argv[i]);
+printf(" Numero de caracteres: %i\n",Num_Caracs(argv[i]));
+}
 return 0;
 }
