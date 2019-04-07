@@ -4,7 +4,7 @@ int main(int argc, const char * argv[]) {
    char string[100];
    FILE *fp;
    fp=fopen ("ola.txt","w");  
-   fprintf(fp,"olá mundo\n");
+   fprintf(fp,"olá mundo");
    fclose(fp);
    
    return 0;
@@ -81,3 +81,54 @@ int tam_arq_texto(char *nome_arquivo){
  	fclose(arquivo);
    return tamanho;
 }
+
+5 - #include <stdio.h>
+#include <stdlib.h>
+#include "bib_arqs.h"
+
+char str[100];
+
+int main(int argc, char **argv)
+{
+long tam;
+char *string;
+char arq[15];
+
+	printf("Digite o nome do arquivo desejado\n");
+	scanf("%s",arq);
+		string=le_arq_texto(arq);
+		tam=tam_arq_texto(arq);
+	printf("O tamanho do arquivo e - %ld bytes\n",tam);
+	printf("Conteudo-  %s\n",string);
+	
+ return 0;
+}
+
+char* le_arq_texto(char *nome_arquivo){
+FILE *fp;
+	fp = fopen(nome_arquivo,"r");
+	 while( (fgets(str, sizeof(str), fp))!=NULL )
+	fclose(fp);
+	printf("Lido com sucesso\n");
+	return str;
+}
+
+
+int tam_arq_texto(char *nome_arquivo){
+
+    FILE *arquivo; // ponteiro para o arquivo
+    long tamanho; // tamanho em bytes do arquivo
+
+    arquivo = fopen(nome_arquivo, "r");
+    if (arquivo != NULL) {
+        fseek(arquivo, 0, SEEK_END);
+        tamanho = ftell(arquivo);
+	printf("tamanho lido com sucesso!\n");
+    } else {
+        printf("Arquivo inexistente");
+    }
+ 	fclose(arquivo);
+   return tamanho;
+}
+
+6 - 
