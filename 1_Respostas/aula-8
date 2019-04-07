@@ -1,0 +1,65 @@
+1 - #include <stdlib.h>
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+
+int main(){
+
+int a=3,b=2,c=1;
+
+	pid_t child_pid;
+	pid_t grandson_pid;
+
+	printf("O ID desse processo e %d\n",(int) getpid());
+	printf(" Antes de criar o processo-filho, a=%d, b=%d e c=%d\n", a, b, c);
+	
+	child_pid = fork();
+	
+	if(child_pid==0){
+		grandson_pid = fork();
+
+		if(grandson_pid==0){
+
+			printf("Esse e o processo neto de id %d\n",(int) getpid());
+			a = 20;
+			b = 12;
+			c = 21;
+			printf("Os valores de a b e c mudarem no processo filho-, a=%d, b=%d e c=%d\n", a, b, c);
+		}
+		else{
+
+			a = 10;
+			b = 24;
+			c = 37;
+
+			printf("Processo filho ID=%d\n",(int) getpid());
+			printf("Os valores de a b e c mudarem no processo filho-, a=%d, b=%d e c=%d\n", a, b, c);
+
+	}}
+
+	else{
+		printf("processo pai - valores -, a=%d, b=%d e c=%d\n", a, b, c);
+		printf(" Seu filho tem o ID %d \n", child_pid);
+		printf("Eseu neto tem ID %d\n",grandson_pid);
+	}
+
+
+return 0;
+}
+
+2-#include <stdlib.h>
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+
+
+int main(int argc, char **argv){
+
+for(int i=1; i<argc; i++){
+
+system(argv[i]);
+
+}
+return 0;
+}
+3 - 
