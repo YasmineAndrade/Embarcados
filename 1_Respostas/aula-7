@@ -1,14 +1,50 @@
-1 -A)
-FILE *fp;
-//abre o arquivo
-	fp = open("exemplo.bin", O_RDWR);
-// Fecha arquivo
-  close(fp)
-  
-  B) fp=fopen ("ola.txt","w"); //o "w" dentro da função fopen indica que o arquivo foi aberto para escrita;    
-   fprintf(fp,"olá mundo\n"); //aqui o "fprintf" escreve no arquivo um conteudo
-   
-  C)fp=fopen ("ola.txt","r"); //o "r" dentro da função fopen indica que o arquivo foi aberto para leitura; 
-  
+1 - #include <stdio.h>	// Para a funcao printf()
+#include <fcntl.h>	// Para a funcao open()
+#include <unistd.h>	// Para a funcao close()
+#include <stdlib.h>	// Para a função exit()
+
+int main(int argc, const char * argv[]) {
+	char string[]="Ola mundo!\n";
+	int i,fp;
+	fp = open("ola.txt", O_RDWR | O_CREAT);
+
+	if(fp==-1)
+	{
+		printf("Erro na abertura do arquivo.\n");
+		exit(-1);
+	}
+	write(fp,string,sizeof(string));
+	close(fp);
+
+
+   return 0;
+}
+ 
+2- #include <stdio.h>	// Para a funcao printf()
+#include <string.h>
+#include <fcntl.h>	// Para a funcao open()
+#include <unistd.h>	// Para a funcao close()
+#include <stdlib.h>	// Para a função exit()
+
+int main(int argc, char **argv){
+char nome[20];
+int idade;
+int fp;
+
+	printf("Digite seu nome:\n");
+	scanf("%s",nome);
+	printf("Digite sua idade:\n");
+	scanf("%d",&idade);
+
+	strcat(nome,".txt");
+	
+	fp = open(nome, O_RDWR | O_CREAT);
+	write(fp,&idade,sizeof(idade));
+	close(fp);
+
+
+return 0;
+}
+3 - 
    
     
