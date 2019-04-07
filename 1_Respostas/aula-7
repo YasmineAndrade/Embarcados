@@ -45,6 +45,26 @@ int fp;
 
 return 0;
 }
-3 - 
+3 - #include <stdio.h>	// Para a funcao printf()
+#include <string.h>
+#include <fcntl.h>	// Para a funcao open()
+#include <unistd.h>	// Para a funcao close()
+
+int main(int argc, char **argv){
+char nome;
+int idade;
+int fp;
+
+	nome = argv[1];
+	idade = argv[2];
+	strcat(nome,".txt");
+	
+	fp = open(nome, O_RDWR | O_CREAT);
+	write(fp,&idade,sizeof(int));
+	close(fp);
+
+
+return 0;
+}
    
     
