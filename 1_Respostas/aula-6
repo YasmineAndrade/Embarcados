@@ -131,4 +131,24 @@ int tam_arq_texto(char *nome_arquivo){
    return tamanho;
 }
 
-6 - 
+6 - #include <stdio.h>
+#include <stdlib.h>
+#include "bib_arqs.h"
+char str[100];
+
+int main(int argc, char **argv)
+{
+char *string;
+		string=le_arq_texto(argv[1]);
+	printf("%s\n",string);
+	
+ return 0;
+}
+
+char* le_arq_texto(char *nome_arquivo){
+FILE *fp;
+	fp = fopen(nome_arquivo,"r");
+	 while( (fgets(str, sizeof(str), fp))!=NULL )
+	fclose(fp);
+	return str;
+}
