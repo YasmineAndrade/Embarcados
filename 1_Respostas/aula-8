@@ -89,5 +89,65 @@ for(int i=1; i<argc; i++){
 
 return 0;
 }
-4-
+4-#include <stdlib.h>
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <sys/wait.h>
+
+
+
+int v_global = 0; // Variavel global para este exemplo
+void Incrementa_Variavel_Global(pid_t id_atual)
+{
+	v_global++;
+	printf("ID do processo que executou esta funcao = %d\n", id_atual);
+	printf("v_global = %d\n", v_global);
+}
+
+int main(){
+
+	pid_t child_pid;
+	pid_t child_pid2;
+	pid_t child_pid3;
+	
+	child_pid = fork();
+
+	
+	if(child_pid == 0){
+	int a = (int) getpid();
+
+		Incrementa_Variavel_Global(a);
+		exit(1);
+	}
+	child_pid2 = fork();
+	
+	if(child_pid2 == 0){
+	int a = (int) getpid();
+
+		Incrementa_Variavel_Global(a);
+		exit(1);
+	}
+	child_pid3 = fork();
+	if(child_pid3 == 0){
+	int a = (int) getpid();
+
+		Incrementa_Variavel_Global(a);
+		exit(1);
+	}
+	
+	else{
+	sleep(1);
+	printf("processo pai\n");
+	int a = (int) getpid();
+
+		Incrementa_Variavel_Global(a);
+	}
+
+return 0;
+}
+
+// os propcessos enxergam a variavel como global, pois sempre que é chamada ela inicia com o valor 0 e incrementa 1 independente da quantidade de vezes que a função é chamada
+
+5 - 
 
