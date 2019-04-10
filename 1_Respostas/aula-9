@@ -1,1 +1,34 @@
 1 - 
+#include <stdio.h>
+#include <stdlib.h>
+#include <signal.h>
+#include <unistd.h>
+#include <string.h>
+
+int main(){
+int pid;
+int fd[2];
+int msg[11];
+//criando pipe
+pipe(fd);
+
+//criando processo
+pid =fork();
+
+//codigo filho
+for(int a=1;a<11;a++){
+if(pid==0){
+	read(fd[0],msg,sizeof(msg));
+	printf("FILHO RECEBEU O VALOR- %d\n",msg[a]);
+}
+//codigo pai
+else{	
+	msg[a]=a;
+	printf("Pai enviou o valor = %d \n",msg[a]);
+	write(fd[1],msg,sizeof(msg)); 
+	sleep(1);
+}}
+return 0;
+}
+2 -
+
