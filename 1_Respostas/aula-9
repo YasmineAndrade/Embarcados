@@ -31,4 +31,56 @@ else{
 return 0;
 }
 2 -
+#include <stdio.h>
+#include <stdlib.h>
+#include <signal.h>
+#include <unistd.h>
+#include <string.h>
+
+int main(){
+int pid;
+int fd[2];
+char msg[100];
+//criando pipe
+pipe(fd);
+
+//criando processo
+pid =fork();
+
+//codigo filho
+if(pid==0){
+	strcpy(msg,"FILHO: Pai, qual é a verdadeira essência da sabedoria?");
+	write(fd[1],msg,sizeof(msg));
+	sleep(1);
+
+	read(fd[0],msg,sizeof(msg));
+	printf("%s\n",msg);
+
+	strcpy(msg,"FILHO: Mas até uma criança de três anos sabe disso!");
+	write(fd[1],msg,sizeof(msg));
+	sleep(1);
+
+	read(fd[0],msg,sizeof(msg));
+	printf("%s\n",msg);
+
+}
+//codigo pai
+else{	
+	read(fd[0],msg,sizeof(msg)); 
+	printf("%s\n",msg);
+
+	strcpy(msg,"PAI: Não façais nada violento, praticai somente aquilo que é justo e equilibrado.");
+	write(fd[1],msg,sizeof(msg));
+	sleep(1);
+
+	read(fd[0],msg,sizeof(msg)); 
+	printf("%s\n",msg);
+
+	strcpy(msg,"PAI: Sim, mas é uma coisa difícil de ser praticada até mesmo por um velho como eu...");
+	write(fd[1],msg,sizeof(msg));
+	sleep(1);
+}
+return 0;
+}
+3 - 
 
