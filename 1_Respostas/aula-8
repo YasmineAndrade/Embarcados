@@ -163,39 +163,21 @@ void Incrementa_Variavel_Global(pid_t id_atual)
 int main(){
 
 	pid_t child_pid;
-	pid_t child_pid2;
-	pid_t child_pid3;
 	
+	for(int i=0;i<3;i++){
 	child_pid = fork();
-
-	
 	if(child_pid == 0){
 	int a = (int) getpid();
 
 		Incrementa_Variavel_Global(a);
-		exit(1);
+		return -1;
 	}
-	child_pid2 = fork();
-	
-	if(child_pid2 == 0){
-	int a = (int) getpid();
-
-		Incrementa_Variavel_Global(a);
-		exit(1);
 	}
-	child_pid3 = fork();
-	if(child_pid3 == 0){
-	int a = (int) getpid();
-
-		Incrementa_Variavel_Global(a);
-		exit(1);
-	}
-	
 	else{
 	sleep(1);
 	printf("processo pai\n");
 	int a = (int) getpid();
-
+		wait(NULL);
 		Incrementa_Variavel_Global(a);
 	}
 
