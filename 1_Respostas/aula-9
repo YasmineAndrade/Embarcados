@@ -83,4 +83,42 @@ else{
 return 0;
 }
 3 - 
+int main(){
+int pid_1;
+int pid_2;
+int fd[2];
+char msg[100];
+//criando pipe
+pipe(fd);
+//criando processo
+
+
+pid_1 =fork();
+//codigo filho 1
+if(pid_1==0){
+	strcpy(msg,"FILHO1: Quando o vento passa, é a bandeira que se move.\n");
+	write(fd[1],msg,sizeof(msg));
+	sleep(1);
+	read(fd[0],msg,sizeof(msg));
+	printf("%s",msg);
+}
+pid_2 =fork();
+//codigo filho 2
+if(pid_2==0){
+
+	strcpy(msg,"FILHO2: Não, é o vento que se move.\n");
+	write(fd[1],msg,sizeof(msg));
+
+}
+//codigo pai
+else{	
+	read(fd[0],msg,sizeof(msg));
+	printf("%s",msg);
+	sleep(1);
+	strcpy(msg,"PAI: Os dois se enganam. É a mente dos senhores que se move.\n");
+	write(fd[1],msg,sizeof(msg));
+}
+return 0;
+}
+
 
