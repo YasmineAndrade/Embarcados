@@ -120,5 +120,37 @@ else{
 }
 return 0;
 }
+4 - #include <stdio.h>
+#include <stdlib.h>
+#include <signal.h>
+#include <unistd.h>
+#include <string.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 
+
+int main(){
+int pid_1;
+int fd[2];
+char msg[100];
+//criando pipe
+pipe(fd);
+//criando processo
+
+
+pid_1 =fork();
+//codigo filho 1
+if(pid_1==0){
+	printf("Digite seu nome\n");
+	scanf("%s",msg);
+	write(fd[1],msg,sizeof(msg));
+}
+
+else{	
+	read(fd[0],msg,sizeof(msg));
+	printf("***O pai escreve***\n\n%s\n",msg);
+	
+}
+return 0;
+}
 
