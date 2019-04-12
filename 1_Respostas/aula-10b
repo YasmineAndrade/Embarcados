@@ -1,0 +1,33 @@
+1 -#include <pthread.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+int a;
+int valores[10];
+
+void* recebe_val(void* param){
+int *valor = (int *) param;
+
+	valores[*valor] = *valor;
+	if(*valor==10){
+		for(a=0;a<11;a++){
+		printf("thread leu - %d\n", valores[a]);
+
+	}}
+return NULL;
+}
+
+int main(){
+int i=0;
+	pthread_t thread_1;
+	
+	printf("thread criada");
+	for(i=1;i<=10;i++){
+	printf("\nEnviando Valor-  %d\n",i);
+	pthread_create (&thread_1, NULL, &recebe_val, &i);
+	sleep(1);
+	}
+
+return 0;
+}
+
