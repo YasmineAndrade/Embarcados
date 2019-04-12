@@ -1,0 +1,7 @@
+1 - A comutação de contexto entre duas threads é mais rápido do que entre dois processos,criação de uma thread é mais rápida do que a criação de um novo processo, e economia de recursos, já que os recursos alocados para o processo podem ser compartilhados entre as threads.
+      A desvantagem em relacao ao processo é que com vários threads o trabalho fica mais complexo, devido a interação que ocorre entre eles.
+
+2 -A) Serao criadas duas threads, que irao coexistir pois as duas sao criadas sequencialmente sen um pthread_join para esperar o outro processo acabar.
+   B) Ser'ao criadas duas threads onde e executada uma por vez, devido ao fato de uma ser criada, esperar ate o fim e depois criar a outra thread.
+   
+3 - 
