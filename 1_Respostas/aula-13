@@ -1,1 +1,4 @@
-1 - 
+1 - 80	Servidor da Web (HTTP)
+    22 (SSH - linha de acesso para comando remoto)
+    20 e 21 (FTP)
+2 -
