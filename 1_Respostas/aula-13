@@ -1,4 +1,9 @@
 1 - 80	Servidor da Web (HTTP)
     22 (SSH - linha de acesso para comando remoto)
     20 e 21 (FTP)
-2 -
+2 - A) Um IP externo pode ser usado por vários computadores, dezenas, centenas, as vezes milhares, pois este possui o 
+    acesso a rede e distribui internet para os aparelhos conectados a ele, sendo um valor de ip unico que o identifica.
+    Já os internos possuem um Ip unico dentro da conexão do ip externo(por exemplo um roteador).
+    B)
+    C)
+    
