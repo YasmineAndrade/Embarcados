@@ -1,7 +1,11 @@
-1 - É um sistema onde o usuario faz requisições e o servidor é um host que está executando um ou mais serviços 
+1 - A)É um sistema onde o usuario faz requisições e o servidor é um host que está executando um ou mais serviços 
 ou programas que compartilham recursos com os clientes. Já cliente não compartilha qualquer recurso, mas solicita 
 um conteúdo ou função do servidor.
-
+   B) O servidor tem a função de prover serviços à outros artefatos de software, chamados de clientes.
+   C) - Inicia e termina requisições a servidores;
+      - Não se comunica com outros clientes;
+      - Hardwere: não precisa de tanto poder de processamento quato o servidor;  
+      
 2- A) Um protocolo de comunicações é um conjunto de normas que estão obrigadas a cumprir todas as máquinas e programas 
 que intervêem em uma comunicação de dados entre computadores sem os quais, a comunicação seria caótica e, portanto impossível.
 B) - detecção da conexão física subjacente ou a existência de um nó;
@@ -15,4 +19,4 @@ B) - detecção da conexão física subjacente ou a existência de um nó;
  
 3) A) e este é o conjunto de normas de transporte estabelecido e definida linguagem estabelecida para a 
 Rede Internet e incorporada por outras redes.
-  B) Estas portas servem para tranmissão de arquivos de forma independente..
+  B) Estas portas servem para tranmissão de arquivos de forma independente e confiável.
