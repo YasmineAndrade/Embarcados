@@ -49,3 +49,48 @@ return 0;
 }
 
 3-
+#include <wiringPi.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <signal.h>
+
+#define slc_1hz 3
+#define button 1
+float a =1;
+
+void mod(){
+   a*=2;
+   if(a>64){a=1;}
+   printf("\nA frequencia é de: %.1f Hz\n",a);
+}
+
+int main(void){
+
+   wiringPiSetup();
+   pinMode(slc_1hz,OUTPUT);
+   pinMode(button,INPUT);
+   pullUpDnControl(button,PUD_UP);
+
+   int estadoLed =0;
+  signal(SIGUSR1,mod);
+   pid_t pid_filho=fork();
+//processo filho
+   if(pid_filho==0){
+	while(1){
+	estadoLed=!estadoLed;
+	digitalWrite(slc_1hz,estadoLed);
+	delay(1000*(1/a));
+	}}
+	//Processo pai
+	else{
+	while(1){
+        if(digitalRead(button)==LOW){
+		kill(pid_filho,SIGUSR1);
+		while(digitalRead(button) == LOW);
+		delay(20);
+	}
+	}
+
+	}
+return 0;
+}
