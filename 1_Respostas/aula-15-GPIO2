@@ -1,0 +1,23 @@
+1 -#include  <stdio.h>
+#include <wiringPi.h>
+
+#define slc_1hz 3 
+
+int main(void){
+ wiringPiSetup();
+ pinMode(slc_1hz,OUTPUT);
+
+  int estadoLed = 0;
+
+ while(1){
+	
+	estadoLed=!estadoLed;
+	digitalWrite(slc_1hz,estadoLed);
+	if(estadoLed==1){printf("\nacendeu\n");}
+	if(estadoLed==0){printf("\napagaste\n");}
+	delay(1000);
+}
+return 0;
+}
+
+2 -
