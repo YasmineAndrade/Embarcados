@@ -20,4 +20,32 @@ int main(void){
 return 0;
 }
 
-2 -
+2 -#include  <stdio.h>
+#include <wiringPi.h>
+
+#define slc_1hz 3 
+
+int main(void){
+ wiringPiSetup();
+ pinMode(slc_1hz,OUTPUT);
+
+  int estadoLed = 0;
+ float a;
+    printf("Digite a frequencia desejada:");
+    scanf("%f",&a);
+    printf("\n%f\n",a);
+ while(1){
+	
+	estadoLed=!estadoLed;
+	digitalWrite(slc_1hz,estadoLed);
+	if(estadoLed==1){printf("\nacendeu\n");}
+	if(estadoLed==0){printf("\napagaste\n");}
+	delay((1/a)*1000);
+}
+
+
+
+return 0;
+}
+
+3-
