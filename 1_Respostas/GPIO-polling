@@ -1,0 +1,58 @@
+#include <wiringPi.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <sys/poll.h>
+
+#define slc_1hz 1
+
+float a =1;
+
+void mod(){
+   a*=2;
+   if(a>64){a=1;}
+   printf("\nA frequencia é de: %.1f Hz\n",a);
+}
+
+int main(void){
+
+   wiringPiSetup();
+   pinMode(slc_1hz,OUTPUT);
+	
+	struct pollfd pfd;
+	char buffer;
+
+   int estadoLed =1;
+  signal(SIGUSR1,mod);
+   pid_t pid_filho=fork();
+//processo filho
+   if(pid_filho==0){
+	while(1){
+	estadoLed=!estadoLed;
+	digitalWrite(slc_1hz,estadoLed);
+	delay(1000*(1/a));
+	}}
+	//Processo pai
+	else{
+	while(1){
+	
+	system("echo 22       > /sys/class/gpio/export");
+	system("echo falling > /sys/class/gpio/gpio22/edge");
+	system("echo in      > /sys/class/gpio/gpio22/direction");
+	pfd.fd = open("/sys/class/gpio/gpio22/value", O_RDONLY);
+	read(pfd.fd, &buffer, 1);
+	pfd.events = POLLPRI | POLLERR;
+	pfd.revents = 0;
+	puts("Pressione o botao para aumentar a frequencia");
+	poll(&pfd, 1, -1);
+	kill(pid_filho,SIGUSR1);
+	puts("Borda de descida!");
+	close(pfd.fd);
+	system("echo 4 > /sys/class/gpio/unexport");
+		
+	}}
+
+return 0;
+}
