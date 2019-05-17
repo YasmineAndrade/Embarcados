@@ -1,0 +1,17 @@
+1- Sincrona 
+   VANTAGENS
+   - A comunicação sincrona é mais eficiente pois não precisa de sinais de inicio e fim de caractere;
+   - possui maior proteção contra erros pois permite a validação dos dados após o envio;
+   
+   DESVANTAGENS
+   - Se há um erro de sincronização, todo o bloco é perdido, pois até a ressincronização a amostragem será realizada em instantes incorretos.  
+   - Exige o uso de buffers, o que encarece o custo do equipamento, pois os caracteres devem ser enviados em blocos e não conforme sua
+   disponibilidade.
+  
+  2 - É possivel sim, o msp apenas deve enviar um sinal de start para indicar que vai iniciar a transmissão;
+  3 - É necessario que o MSP espere até a raspberry iniciar a transmissão, pois neste sistema de comunicação é necessario que primeiro o
+    mestre envie as informações para receber informações do escravo.
+  4 - Será necessario conhecer desativar uma linha de transmissão com um dos dispositivos uart, isso pode ser feito 
+    adicionando uma alta impedancia na linha de transmissão.
+  5 - Basta criar um segundo seletor de escravo, onde o endereço de cada escravo estara gravado em um dos seletores, possibilitando assim a multipla comunicação.
+  
